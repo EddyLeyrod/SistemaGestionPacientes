@@ -23,13 +23,13 @@ namespace SistemaGestionPacientes.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("NotFound", "Error");
             }
             //  EF: FindAsync() ejecuta una consulta para buscar el paciente
             Paciente paciente = await db.Pacientes.FindAsync(id);
             if (paciente == null)
             {
-                return HttpNotFound();
+                return RedirectToAction("NotFound","Error");
             }
             return View(paciente);
         }
@@ -111,7 +111,7 @@ namespace SistemaGestionPacientes.Controllers
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Paciente paciente = await db.Pacientes.FindAsync(id);
-            //  EF: Remove() prepara el objeto para DELETE
+            //  EF: Remove() prepara el registro para DELETE
             db.Pacientes.Remove(paciente);
             //  EF: SaveChangesAsync() ejecuta el DELETE en la base de datos y guarda los cambios
             await db.SaveChangesAsync();

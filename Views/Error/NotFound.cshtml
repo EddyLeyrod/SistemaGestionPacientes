@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Página No Encontrada";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <div class="error-template">
+                <h1 class="display-1 text-primary">404</h1>
+                <h2 class="mb-4">¡Oops! Página no encontrada</h2>
+                <div class="error-details mb-4">
+                    <p class="lead">Lo sentimos, la página que estás buscando no existe o ha sido movida.</p>
+                </div>
+                <div class="error-actions">
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-primary btn-lg">
+                        <i class="fas fa-home"></i> Ir al Inicio
+                    </a>
+                    <a href="@Url.Action("Index", "Pacientes")" class="btn btn-success btn-lg">
+                        <i class="fas fa-users"></i> Ver Pacientes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .error-template {
+        padding: 40px 15px;
+        text-align: center;
+    }
+
+    .error-actions {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+        .error-actions .btn {
+            margin-right: 10px;
+        }
+</style>
